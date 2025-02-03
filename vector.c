@@ -1,7 +1,6 @@
 #include <math.h>
 #include <stdio.h>
 #include "vector.h"
-#include "pixel.h"
 
 #define PI 3.14159
 
@@ -74,7 +73,7 @@ AngleComps VEC_getAngles(const Vector* camera_pos, const Basis* camera_basis, co
 // Node: This function always executes the yz_angle first
 // This func should ideally be used one angle at a time 
 // e.g. yz_angle = ..., xz_angle = 0, or vice versa
-void updateCameraBasis(Basis* camera_basis, float yz_angle, float xz_angle) {
+void VEC_updateCameraBasis(Basis* camera_basis, float yz_angle, float xz_angle) {
   if (xz_angle != 0) {
     float xz_cos = cosf(xz_angle);
     float xz_sin = sinf(xz_angle);
@@ -106,7 +105,7 @@ void updateCameraBasis(Basis* camera_basis, float yz_angle, float xz_angle) {
   }
 }
 
-void printBasis(const Basis* b) {
+void VEC_printBasis(const Basis* b) {
   printf("{\n  {%f, %f, %f},\n  {%f, %f, %f},\n  {%f, %f, %f}\n}\n", 
          b->x.x, b->x.y, b->x.z,
          b->y.x, b->y.y, b->y.z,

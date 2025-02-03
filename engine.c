@@ -88,13 +88,13 @@ void initScreenString() {
 #define TURN_SPEED 0.02
 void updateGameState(char c) {
   if (c == 'W') {
-    updateCameraBasis(&camera_basis, TURN_SPEED, 0);
+    VEC_updateCameraBasis(&camera_basis, TURN_SPEED, 0);
   } else if (c == 'S') {
-    updateCameraBasis(&camera_basis, -TURN_SPEED, 0);
+    VEC_updateCameraBasis(&camera_basis, -TURN_SPEED, 0);
   } else if (c == 'D') {
-    updateCameraBasis(&camera_basis, 0, -TURN_SPEED);
+    VEC_updateCameraBasis(&camera_basis, 0, -TURN_SPEED);
   } else if (c == 'A') {
-    updateCameraBasis(&camera_basis, 0, TURN_SPEED);
+    VEC_updateCameraBasis(&camera_basis, 0, TURN_SPEED);
   } else if (c == 'w') {
     VEC_add(&camera_pos, &camera_basis.z, 0.1);
   } else if (c == 's') {

@@ -36,13 +36,13 @@ void reset_terminal_mode() {
 
 void updateGameState(char c) {
   if (c == 'w') {
-    updateCameraBasis(&camera_basis, 0.01, 0);
+    VEC_updateCameraBasis(&camera_basis, 0.01, 0);
   } else if (c == 's') {
-    updateCameraBasis(&camera_basis, -0.01, 0);
+    VEC_updateCameraBasis(&camera_basis, -0.01, 0);
   } else if (c == 'd') {
-    updateCameraBasis(&camera_basis, 0, -0.01);
+    VEC_updateCameraBasis(&camera_basis, 0, -0.01);
   } else if (c == 'a') {
-    updateCameraBasis(&camera_basis, 0, 0.01);
+    VEC_updateCameraBasis(&camera_basis, 0, 0.01);
   }
 }
 
@@ -53,7 +53,7 @@ int main() {
   while (1) {
     char c;
     printf("\033[H\033[J");
-    printBasis(&camera_basis);
+    VEC_printBasis(&camera_basis);
     printf("The angles away from the test point:\n");
     AngleComps angles = VEC_getAngles(&camera_pos, &camera_basis, &test_point);
     printf("{ %f, %f }\n", angles.x_comp, angles.y_comp);
