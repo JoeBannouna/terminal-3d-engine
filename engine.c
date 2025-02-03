@@ -36,20 +36,6 @@ STACK(Index, HEIGHT*(WIDTH+1), pixel_indices);
 
 char* screen_string;
 
-// array of screen_string indices that contain pixels
-/*int pixelIndices[HEIGHT*(WIDTH+1)];*/
-/*int pixelIndicesLen = 0;*/
-/**/
-/*void pushIndex(int index) {*/
-/*  pixelIndices[pixelIndicesLen] = index;*/
-/*  pixelIndicesLen++;*/
-/*}*/
-/**/
-/*int popIndex() {*/
-/*  pixelIndicesLen--;*/
-/*  return pixelIndices[pixelIndicesLen];*/
-/*}*/
-
 int getScreenStringIndex(int row, int col) {
   return row * (WIDTH + 1) + col;
 }
@@ -140,6 +126,7 @@ void reset_terminal_mode() {
   tcsetattr(STDIN_FILENO, TCSANOW, &term);
 }
 
+// initialize the state
 void initializeVariables() {
   initScreenString();
 
@@ -188,7 +175,7 @@ int main() {
     }
     for (int i = 0; i < cubes_len; i++) {
       connectCubeLines(&cubes[i]);
-      /*CUBE_rotate(&cubes[i], 0.01, 0.04);*/
+      CUBE_rotate(&cubes[i], 0.01, 0.04);
     }
     setFrame();
     renderFrame();

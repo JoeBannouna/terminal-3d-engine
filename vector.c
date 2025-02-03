@@ -5,10 +5,6 @@
 
 #define PI 3.14159
 
-void VEC_print(const Vector* vec) {
-  printf("{ %f, %f, %f }\n", vec->x, vec->y, vec->z);
-}
-
 // initialize a vector
 void VEC_init(Vector* vec, float x, float y, float z) {
   vec->x = x;
@@ -21,14 +17,6 @@ void VEC_add(Vector* vec, const Vector* added_vec, float scale) {
   vec->x += scale * added_vec->x;
   vec->y += scale * added_vec->y;
   vec->z += scale * added_vec->z;
-}
-
-IntVec VEC_convertToInt(const Vector* vec) {
-  IntVec int_vec;
-  int_vec.x = (int)vec->x;
-  int_vec.y = (int)vec->y;
-  int_vec.z = (int)vec->z;
-  return int_vec;
 }
 
 float VEC_dot(const Vector* vec1, const Vector* vec2) {
@@ -124,8 +112,4 @@ void printBasis(const Basis* b) {
          b->y.x, b->y.y, b->y.z,
          b->z.x, b->z.y, b->z.z
   );
-}
-
-Pixel2D getPixelPos(const AngleComps* angles, const AngleComps max_angles, const int screen_dim[static 2]) {
-  return (Pixel2D) {angles->x_comp * 100, angles->y_comp * 100};
 }

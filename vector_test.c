@@ -12,8 +12,6 @@ Basis camera_basis = {
   .y = {0, 1, 0},
   .z = {0, 0, 1}
 };
-float theta = 0;
-float phi = 0;
 Vector test_point = {0, 0, 2};
 
 // Function to configure terminal to raw mode
@@ -55,14 +53,10 @@ int main() {
   while (1) {
     char c;
     printf("\033[H\033[J");
-    /*printf("This is a test\n");*/
     printBasis(&camera_basis);
     printf("The angles away from the test point:\n");
     AngleComps angles = VEC_getAngles(&camera_pos, &camera_basis, &test_point);
-    /*int scr_dim[] = {100, 200};*/
-    /*Pixel2D pixel_pos = getPixelPos(&angles, (AngleComps) {90, 90}, scr_dim);*/
     printf("{ %f, %f }\n", angles.x_comp, angles.y_comp);
-    /*printf("{ %d, %d }\n", pixel_pos.x, pixel_pos.y);*/
     fd_set set;
     struct timeval timeout;
 
