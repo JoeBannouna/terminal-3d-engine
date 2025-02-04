@@ -24,6 +24,8 @@ typedef struct {
   ...
 } Cube;
 ```
+
+### The rendering cycle
 In `engine.c` 4 macro-defined 'stack' structures store the state of the engine.
 ```c
 // Stack with maximum capacity 5 storing Cubes 
